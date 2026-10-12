@@ -14,11 +14,15 @@ constexpr inline const wchar_t* MS_SR_KEY
 
 constexpr inline const char* EDGE_TRUSTED_CLIENT_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
 
-constexpr inline const char* EDGE_VOICE_LIST_URL = "https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list?trustedclienttoken=6A5AA1D4EAFF4E9FB37E23D68491D6F4";
+// Microsoft is migrating Edge Read Aloud TTS from speech.platform.bing.com to
+// api.msedgeservices.com, and the client key query parameter was renamed from
+// TrustedClientToken to Ocp-Apim-Subscription-Key.
+// See https://github.com/rany2/edge-tts/issues/490
+constexpr inline const char* EDGE_VOICE_LIST_URL = "https://api.msedgeservices.com/tts/cognitiveservices/voices/list?Ocp-Apim-Subscription-Key=6A5AA1D4EAFF4E9FB37E23D68491D6F4";
 
 constexpr inline const wchar_t* EDGE_WEBSOCKET_URL
-	= L"wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1"
-	  L"?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&Sec-MS-GEC={Sec-MS-GEC}&Sec-MS-GEC-Version=1-142.0.3595.94";
+	= L"wss://api.msedgeservices.com/tts/cognitiveservices/websocket/v1"
+	  L"?Ocp-Apim-Subscription-Key=6A5AA1D4EAFF4E9FB37E23D68491D6F4&Sec-MS-GEC={Sec-MS-GEC}&Sec-MS-GEC-Version=1-142.0.3595.94";
 
 constexpr inline const char* AZURE_TTS_HOST_AFTER_REGION = ".tts.speech.microsoft.com";
 
