@@ -1,11 +1,11 @@
-This version fixes the following issues:
+This version contains the following changes:
 
-- Voice events are not triggered correctly (#82)
-- An x86 TtsApplication.exe is incorrectly placed in the ARM64 folder
+- Edge Read Aloud online voices now use the new endpoint `api.msedgeservices.com` with the `Ocp-Apim-Subscription-Key` query parameter, as a workaround for the legacy `speech.platform.bing.com` endpoint returning HTTP 403. The existing `Sec-MS-GEC` token generation is unchanged.
+- CI runners are pinned to `windows-2022`, because `windows-latest` now resolves to a VS2026 image that provides neither the v143 toolset nor ATL.
 
 ---
 
-此版本修复了以下问题：
+此版本包含以下改动：
 
-- 语音事件不会正确触发 (#82)
-- x86 版本的 TtsApplication.exe 被错误地放在了 ARM64 文件夹中
+- Edge 朗读在线语音改用新端点 `api.msedgeservices.com` 及查询参数 `Ocp-Apim-Subscription-Key`，作为旧端点 `speech.platform.bing.com` 返回 HTTP 403 的应急处理。原有的 `Sec-MS-GEC` 令牌生成算法保持不变。
+- CI 运行器固定为 `windows-2022`，因为 `windows-latest` 现在指向 VS2026 镜像，既不提供 v143 工具集也没有 ATL。
